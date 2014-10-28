@@ -68,11 +68,3 @@ public class videoObj {
         return b;
     }
 }
-/*
-static String 	FLASH 
-static String 	PDF 
-static String 	QUICKTIME 
-static String 	REAL 
-static String 	WINDOWS 
-
-*/

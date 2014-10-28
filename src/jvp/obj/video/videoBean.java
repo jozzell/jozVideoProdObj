@@ -124,7 +124,10 @@ public class videoBean  implements Serializable{
      * @return the videoPlayer
      */
     public String getVideoPlayer() {
-       
+        if (videoPlayer == null || videoPlayer.trim().length() == 0){
+            System.err.println(this.getVideoURL()+" Player = NULL/0");
+            return "quicktime".toLowerCase();
+        }
         return videoPlayer;
     }
 
