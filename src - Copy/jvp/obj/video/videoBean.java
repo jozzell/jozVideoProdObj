@@ -13,7 +13,6 @@ import javax.faces.bean.ManagedBean;
  *
  * @author lmeans
  */
-
 @ManagedBean
 public class videoBean  implements Serializable{
 	private int videoId;
@@ -39,11 +38,11 @@ public class videoBean  implements Serializable{
         
     }
     public boolean isImage(){
-        if (getImageName() == null || getImageName().trim().length() == 0) return false;
+        if (imageName == null || imageName.trim().length() == 0) return false;
         return true;
     }
     public String getVideoURL(){
-           return getRootURL()+"/"+getVideoValue();
+           return rootURL+"/"+videoValue;
        }
     public int getVideoId() {
         return videoId;
@@ -131,8 +130,8 @@ public class videoBean  implements Serializable{
      */
     public String getVideoPlayer() {
         if (videoPlayer == null || videoPlayer.trim().length() == 0){
-            if (this.getSysId() != 0){
-                switch(this.getSysId()){
+            if (this.sysId != 0){
+                switch(this.sysId){
                     case -12:
                         videoPlayer="quicktime";
                     default:

@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import obj.db.v1.dbMgrInterface;
+import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import sun.jdbc.rowset.CachedRowSet;
 
 /**
@@ -20,7 +22,7 @@ import sun.jdbc.rowset.CachedRowSet;
  */
 public class videoObj {
     videoSql videoSql;
-    public  final org.apache.log4j.Logger logger = (org.apache.log4j.Logger) org.apache.log4j.Logger.getLogger(videoObj.class);
+    public  final Logger logger = (Logger) Logger.getLogger(videoObj.class);
     public videoObj(){
         videoSql = new videoSql();
     }
@@ -40,22 +42,6 @@ public class videoObj {
         return i;
     }
     public int update(videoBean bean,dbMgrInterface db){
-        if (bean.getVideoHeight() == 0 && bean.getVideoWidth() == 0) {
-            bean.setLookupId(5);
-            switch (bean.getSysId()) {
-                case -12:
-                    bean.setVideoPlayer("quicktime");
-                    bean.setVideoHeight(281);
-                    bean.setVideoWidth(500);
-
-                    break;
-                default:
-                    bean.setVideoPlayer("flash");
-                    bean.setVideoHeight(315);
-                    bean.setVideoWidth(560);
-                    break;
-            }
-        }
         try {
             if (bean.getVideoId() == 0){
                 String str = null;
